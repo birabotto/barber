@@ -1,4 +1,3 @@
-import { Subscription } from "./../../../node_modules/.prisma/client/index.d";
 import prismaClient from "../../prisma";
 import { compare } from "bcryptjs";
 import { sign } from "jsonwebtoken";
