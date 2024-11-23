@@ -17,6 +17,7 @@ import { NewScheduleController } from "./controllers/schedule/NewScheduleControl
 import { ListScheduleController } from "./controllers/schedule/ListScheduleController";
 
 import { isAuthenticated } from "./middlewares/isAuthenticated";
+import { FinishScheduleController } from "./controllers/schedule/FinishSheduleController";
 
 const router = Router();
 
@@ -46,5 +47,10 @@ router.get(
 
 router.post("/schedule", isAuthenticated, new NewScheduleController().handle);
 router.get("/schedule", isAuthenticated, new ListScheduleController().handle);
+router.delete(
+  "/schedule",
+  isAuthenticated,
+  new FinishScheduleController().handle
+);
 
 export { router };
