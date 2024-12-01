@@ -19,6 +19,8 @@ import { ListScheduleController } from "./controllers/schedule/ListScheduleContr
 import { isAuthenticated } from "./middlewares/isAuthenticated";
 import { FinishScheduleController } from "./controllers/schedule/FinishSheduleController";
 
+import { SubscribeController } from "./controllers/subscription/SubscribeController";
+
 const router = Router();
 
 router.post("/users", new CreateUserController().handle);
@@ -52,5 +54,7 @@ router.delete(
   isAuthenticated,
   new FinishScheduleController().handle
 );
+
+router.post("/subscribe", isAuthenticated, new SubscribeController().handle);
 
 export { router };
